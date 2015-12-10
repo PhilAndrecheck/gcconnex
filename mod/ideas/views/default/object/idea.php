@@ -14,7 +14,7 @@ if (!$idea) {
 }
 
 $owner = $idea->getOwnerEntity();
-$owner_icon = elgg_view_entity_icon($owner, 'small');
+$owner_icon = elgg_view_entity_icon($owner, 'medium');
 $container = $idea->getContainerEntity();
 $user_guid = elgg_get_logged_in_user_guid();
 $categories = elgg_view('output/categories', $vars);
@@ -63,7 +63,7 @@ $metadata = elgg_view_menu('entity', array(
 	'entity' => $vars['entity'],
 	'handler' => 'ideas',
 	'sort_by' => 'priority',
-	'class' => 'elgg-menu-hz',
+	'class' => 'list-inline',
 ));
 
 $subtitle = "$author_text $group_text $date $categories $comments_link";
@@ -111,27 +111,27 @@ $userVote = elgg_get_annotations(array(
 	'annotation_owner_guids' => $user_guid,
 	'limit' => 0
 ));
-
+//modify the vote
 $point = ($sum == 1 || $sum == -1) ? "point" : "points";
-$points = "<div class='idea-points mbs'>$sum<span>" . $point ."</span></div>";
+$points = "<div class='idea-vote-counter pull-left'>$sum</div>";
 
 if($container) { // ds - was a weird bug where the container presumably didn't exist??
     if ( $container->canWriteToContainer($user) ) {
         $url = elgg_add_action_tokens_to_url("action/ideas/rateidea");
 
-        $vote .= "<div class='idea-vote-container'>";
-        $vote .= "<span class='idea-likes'>" . count($likes) . "</span>"; 
+        $vote .= "<div class='idea-vote-container pull-left'>";
+        //$vote .= "<span class='idea-likes'>" . count($likes) . "</span>"; 
         if($userVote == 1) {
-            $vote .= "<a href='$url' data-value='1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-up-alt'></span></a>";
+            $vote .= "<div class='mrgn-bttm-sm'><a href='$url' data-value='1' data-idea='{$idea->guid}'><i class='fa fa-arrow-up fa-lg icon-sel'></i><span class='wb-inv'>Upvote this Idea</span></a></div>";
         } else {
-            $vote .= "<a href='$url' data-value='1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-up'></span></a>";
+            $vote .= "<div><a href='$url' data-value='1' data-idea='{$idea->guid}'><i class='fa fa-arrow-up fa-lg icon-unsel'></i><span class='wb-inv'>Upvote this Idea</span></a></div>";
         }
         if($userVote == -1) {
-            $vote .= "<a href='$url' data-value='-1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-down-alt'></span></a>";
+            $vote .= "<div><a href='$url' data-value='-1' data-idea='{$idea->guid}'><i class='fa fa-arrow-down fa-lg icon-sel'></i><span class='wb-inv'>Downvote this Idea</span></a></div>";
         } else {
-            $vote .= "<a href='$url' data-value='-1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-down'></span></a>";
+            $vote .= "<div><a href='$url' data-value='-1' data-idea='{$idea->guid}'><i class='fa fa-arrow-down fa-lg icon-unsel'></i><span class='wb-inv'>Downvote this Idea</span></a></div>";
         }
-        $vote .= "<span class='idea-dislikes'>" . count($dislikes) . "</span>";
+        //$vote .= "<span class='idea-dislikes'>" . count($dislikes) . "</span>";
         $vote .= "</div>";
 
     }
@@ -139,18 +139,18 @@ if($container) { // ds - was a weird bug where the container presumably didn't e
     // $totals = count($likes) . "<span class='elgg-icon elgg-icon-thumbs-up-alt'></span><span class='elgg-icon elgg-icon-thumbs-down-alt'></span>" . count($dislikes);
     
 }
-
+$idea_info = elgg_view_image_block($owner_icon, $list_body, array('class' => 'mbs'));
 if ($full == 'full' && !elgg_in_context('gallery')) {
 
-	$idea_info = elgg_view_image_block($owner_icon, $list_body, array('class' => 'mbs'));
+	
 
 	echo <<<HTML
 <div id="elgg-object-{$idea->guid}" class="elgg-item-idea">
-	<div class="idea-content">
+	<div class="col-sm-10">
 		$idea_info
 		$description
 	</div>
-	<div class="idea-right-column">$points $vote</div>
+	<div class="col-sm-2">$vote  $points </div>
 </div>
 HTML;
 
@@ -164,24 +164,24 @@ HTML;
 
 	echo <<<HTML
 
-<div class="idea-content mts">
+<div class="col-sm-10">
 	<h3>$title_link</h3>
 	<div class="elgg-subtext">$subtitle</div>
 	<div class="elgg-content">$content</div>
 </div>
-<div class="idea-right-column">$points</div>
+<div class="col-sm-2"">$points</div>
 HTML;
 } elseif ($full == 'module') {
 	$content = elgg_get_excerpt($idea->description);
 
 	echo <<<HTML
 
-<div class="idea-content mts">
+<div class="col-sm-10">
 	<h3>$title_link</h3>
 	<div class="elgg-subtext">$subtitle</div>
 	<div class="elgg-content">$content</div>
 </div>
-<div class="idea-right-column">$points</div>
+<div class="col-sm-2">$points</div>
 HTML;
 } elseif (elgg_in_context('gallery')) {
 	echo <<<HTML
@@ -200,12 +200,13 @@ HTML;
 
 	echo <<<HTML
 
-<div class="idea-content mts">
+<div class="col-sm-10">
 	<h3>$title_link</h3>
-	$content
-	$list_body
+    $idea_info
+	<div class="mrgn-tp-sm">$content</div>
+	
 </div>
-<div class="idea-right-column">$points $vote</div>
+<div class="col-sm-2">$points $vote</div>
 HTML;
 
 }

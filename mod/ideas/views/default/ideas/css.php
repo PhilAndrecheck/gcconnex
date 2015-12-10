@@ -316,3 +316,8 @@ div.idea-rate-button:hover {
 .elgg-widget-content .points.zero {
 	color: #999;
 }
+
+.idea-vote-counter{
+        font-size: 2.3em;
+
+}

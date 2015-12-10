@@ -17,16 +17,34 @@ $user = elgg_get_logged_in_user_guid();
 ?>
 
 <div>
-	<label><?php echo elgg_echo('title'); ?></label><br />
-	<?php echo elgg_view('input/text', array('name' => 'title', 'value' => $title)); ?>
+	<label for="title"><?php echo elgg_echo('title'); ?></label><br />
+	<?php echo elgg_view('input/text', array('name' => 'title', 'id' => 'title', 'value' => $title)); ?>
 </div>
 <div>
-	<label><?php echo elgg_echo('description'); ?></label>
-	<?php echo elgg_view('input/longtext', array('name' => 'description', 'value' => $desc)); ?>
+	<label for="description"><?php echo elgg_echo('description'); ?></label>
+	<?php echo elgg_view('input/longtext', array('name' => 'description', 'id' => 'description', 'value' => $desc)); ?>
 </div>
-<div>
-	<label><?php echo elgg_echo('tags'); ?></label>
-	<?php echo elgg_view('input/tags', array('name' => 'tags', 'value' => $tags)); ?>
+
+<div class="mrgn-tp-md">
+    <label for="book_themes">Themes</label>
+    <?php 
+        echo elgg_view('input/select', array(
+	       'name' => 'themes',
+	       'id' => 'book_themes',
+	       'value' => $vars['status'],
+	       'options_values' => array(
+               //We need a loop here to loop through the themes chosen by the book owner
+               //I have put placeholder themes for now (they are not dynamic)
+		      'theme1' => 'Theme 1',
+		      'theme2' => 'Theme 2'
+	       )
+));
+    
+    ?>
+</div>
+<div class="mrgn-tp-sm mrgn-bttm-md">
+	<label for="tags"><?php echo elgg_echo('tags'); ?></label>
+	<?php echo elgg_view('input/tags', array('name' => 'tags', 'id' => 'tags', 'value' => $tags)); ?>
 </div>
 <?php
 

@@ -7,6 +7,18 @@ $group = elgg_get_page_owner_entity();
 
 if (!$description = $group->ideas_description) $description = '';
 
+$new_link = elgg_view('output/url', array(
+	'href' => "ideas/add/$group->guid",
+	'text' => ucfirst(elgg_echo('ideas:add')),
+));
+$new_link = elgg_view('output/url', array(
+	'href' => "ideas/add/$group->guid",
+    'class' => 'btn btn-primary',
+	'text' => ucfirst(elgg_echo('ideas:add')),
+));
+
+echo $new_link;
+
 $question = elgg_echo('ideas:search');
 
 echo elgg_view('output/longtext', array('value' => $description));
@@ -20,6 +32,7 @@ echo "<div style='width:97%;'>". elgg_view('input/text', array(
 ))  ."</div>";
 
 ?>
+
 
 <div id="ideas-characters-remaining">
 	<span>140</span> <?php echo elgg_echo('ideas:charleft'); ?>

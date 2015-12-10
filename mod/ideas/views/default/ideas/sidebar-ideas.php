@@ -41,7 +41,7 @@ if ($ideas) {
 		'container_guid' => elgg_get_page_owner_guid(),
     ));
 }
-if(elgg_get_context() == 'ideas'){
+if($vars['page'] == 'ideas'){
     echo 'testing hard bro';
 }
 

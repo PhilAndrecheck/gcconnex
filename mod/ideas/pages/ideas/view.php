@@ -11,6 +11,8 @@ $page_owner = elgg_get_page_owner_entity();
 
 $crumbs_title = $page_owner->name;
 
+$objectState;
+
 if (elgg_instanceof($page_owner, 'group')) {
 	elgg_push_breadcrumb($crumbs_title, "ideas/group/$page_owner->guid/all");
 } else {
@@ -54,13 +56,15 @@ else if ( $status == -1 ) {		// add link to parent idea, can not add comments
 		));
 	$comments = elgg_view_comments($idea, false, array( 'show_add_form' =>  false ));
 
-	$content .= $unlinklink . "<p>This idea is a child of the aggregated idea: $link </p>" . $comments;
+	$content .=  "<div class='alert alert-info'>This idea is a child of the aggregated idea: $link </div>" . $unlinklink . $comments;
 }
 else {		// add links to child ideas
 	// re-aggregate
 	$vars["parent-id"] = $idea->guid;
 	$reagglink = elgg_view_form('ideas/aggregateideas', array(), $vars);
 
+    $objectState = '<h4>Aggregated Idea</h4>';
+    
 	// dissolve aggregation
 	$url = elgg_add_action_tokens_to_url("action/ideas/dissolveaggregate?guid={$idea->guid}");
 	$dissolvelink = elgg_view('output/url', array(
@@ -73,16 +77,17 @@ else {		// add links to child ideas
 	$children = elgg_get_entities_from_relationship( array( 'relationship' => 'child-idea', 'inverse_relationship' => true ) );
 	$links = "";		// linkts to the children
 	foreach ( $children as $child ){
-		$links .= "<div class='col-md-2'>" . elgg_view('output/url', array(
+		$links .= "<li>" . elgg_view('output/url', array(
 				'href' => $child->getURL(),
 				'text' => $child->title,
 				'is_trusted' => true
-			)) . "</div>";
+			)) . "</li>";
 	}
 	$comments = elgg_view_comments($idea);
 
-	$content .= $reagglink . $dissolvelink . "This idea is an aggregated idea with $status child(ren): <div class='row'> $links </div>" . $comments;
+	$content .= $objectState . $reagglink  . "<h4>This idea is an aggregated idea with $status child(ren):</h4> <ul> $links </ul>" . $dissolvelink . $comments;
 }
+
 
 $body = elgg_view_layout('content', array(
 	'content' => $content,

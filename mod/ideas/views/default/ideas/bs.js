@@ -62,6 +62,8 @@ elgg.ideas.init = function() {
  */
     var getRateButtons = function(vote,elem) {
         // toggle thumbsup/down buttons on vote
+        //removing this for addition
+        /*
         if(vote == 1) {
             elem.find("span").removeClass().addClass("elgg-icon elgg-icon-thumbs-up-alt");
             elem.next().find("span").removeClass().addClass("elgg-icon elgg-icon-thumbs-down");
@@ -70,6 +72,7 @@ elgg.ideas.init = function() {
             elem.prev().find("span").removeClass().addClass("elgg-icon elgg-icon-thumbs-up");
         }
         return;
+        */
     }
     
     $('.idea-vote-container a').live('click', function(e) {

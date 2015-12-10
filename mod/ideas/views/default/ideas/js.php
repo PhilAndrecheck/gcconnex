@@ -48,18 +48,7 @@ elgg.ideas.init = function() {
         }
     });
 
-/*
- * if($userVote == 1) {
-        $vote .= "<a href='$url' data-value='1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-up-alt'></span></a>";
-    } else {
-        $vote .= "<a href='$url' data-value='1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-up'></span></a>";
-    }
-    if($userVote == -1) {
-        $vote .= "<a href='$url' data-value='-1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-down-alt'></span></a>";
-    } else {
-        $vote .= "<a href='$url' data-value='-1' data-idea='{$idea->guid}'><span class='elgg-icon elgg-icon-thumbs-down'></span></a>";
-    }
- */
+
     var getRateButtons = function(vote,elem) {
         // toggle thumbsup/down buttons on vote
         if(vote == 1) {

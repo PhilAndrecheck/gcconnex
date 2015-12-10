@@ -272,9 +272,10 @@ div.idea-rate-button:hover {
 }
 
 .sidebar-idea-list .sidebar-idea-points {
-    border: 1px solid #DEDEDE;
-    border-radius: 5px;
-    padding: 4px;
+
+    font-size: 18px;
+    padding: 15px;
+margin: 0 15px;
     width: 12px;
     text-align: center;
     background-color: #fff;
@@ -283,7 +284,7 @@ div.idea-rate-button:hover {
 
 .sidebar-idea-list .sidebar-idea-title {
     float: left;
-    width: 125px;
+    
 }
 
 /*

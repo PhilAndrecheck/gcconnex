@@ -27,11 +27,10 @@ $status = get_idea_status(get_input('guid'));
 
 if ( $status == 0 ){		// regular comments
 	// make into agregate idea option
-	$aggregatelink = "";
+	$vars["parent-id"] = $idea->guid;
+	$aggregatelink = elgg_view_form('ideas/aggregateideas', array(), $vars);
 
 	// make into child idea / link to a parent option
-	$url = elgg_add_action_tokens_to_url("action/ideas/link?guid1={$idea->guid}&guid2=1026687");
-
 	$vars["child-id"] = $idea->guid;
 	$childlink =  elgg_view_form('ideas/linkidea', array(), $vars);
 
@@ -59,7 +58,8 @@ else if ( $status == -1 ) {		// add link to parent idea, can not add comments
 }
 else {		// add links to child ideas
 	// re-aggregate
-	$reagglink = "";
+	$vars["parent-id"] = $idea->guid;
+	$reagglink = elgg_view_form('ideas/aggregateideas', array(), $vars);
 
 	// dissolve aggregation
 	$dissolvelink = "";

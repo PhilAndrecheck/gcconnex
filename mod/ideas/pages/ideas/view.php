@@ -31,12 +31,9 @@ if ( $status == 0 ){		// regular comments
 
 	// make into child idea / link to a parent option
 	$url = elgg_add_action_tokens_to_url("action/ideas/link?guid1={$idea->guid}&guid2=1026687");
-	$childlink =  elgg_view('output/url', array(
-			'href' => $url,
-			'text' => "link",
-			'is_trusted' => true,
-			'class' => 'btn btn-primary'
-		));
+
+	$vars["child-id"] = $idea->guid;
+	$childlink =  elgg_view_form('ideas/linkidea', array(), $vars);
 
 	$content .= $aggregatelink . $childlink . elgg_view_comments($idea);
 }

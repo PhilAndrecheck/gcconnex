@@ -1,4 +1,4 @@
-<h1>Open Book Documents <a href="https://drive.google.com/folderview?id=0ByRfnoaPKX2uTk51YWlHVkw5RDQ&usp=sharing"><Link!/a> </h1>
+<h1>Open Book Documents <a href="https://drive.google.com/folderview?id=0ByRfnoaPKX2uTk51YWlHVkw5RDQ&usp=sharing">Link!</a> </h1>
 
 
 <h1>GCconnex & How to Install</h1>

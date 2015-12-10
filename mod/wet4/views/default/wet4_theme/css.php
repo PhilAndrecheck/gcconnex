@@ -11251,6 +11251,10 @@ figcaption{
     text-align: center;
 }
 
+.legendLabel{
+    padding-left:7px;   
+}
+
 /****** Polls Custom stuff ******/
 .polls-table th{
        font-weight: bold;

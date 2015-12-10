@@ -32,5 +32,24 @@ if ($ideas) {
         'list_class' => 'sidebar-idea-list',
         'pagination' => false,
         'limit' => 10
+
+    ));
+            
+    echo elgg_view('page/elements/tagcloud_block', array(
+        
+		'subtypes' => 'idea',
+		'container_guid' => elgg_get_page_owner_guid(),
     ));
 }
+if(elgg_get_context() == 'ideas'){
+    echo 'testing hard bro';
+}
+
+/*
+if ($ideas) {
+	echo elgg_view('page/elements/tagcloud_block', array(
+		'subtypes' => 'idea',
+		'container_guid' => elgg_get_page_owner_guid(),
+	));
+}
+*/

@@ -21,8 +21,35 @@ $title = $idea->title;
 
 elgg_push_breadcrumb($title);
 
+
 $content = elgg_view_entity($idea, array('full_view' => 'full'));
-$content .= elgg_view_comments($idea);
+$status = get_idea_status(get_input('guid'));
+
+if ( $status == 0 )		// regular comments
+	$content .= elgg_view_comments($idea);
+else if ( $status == -1 ) {		// add link to parent idea, can not add comments
+	$parent = elgg_get_entities_from_relationship( array( 'relationship' => 'child-idea') )[0];
+	$link = elgg_view('output/url', array(
+			'href' => $parent->getURL(),
+			'text' => $parent->title,
+			'is_trusted' => true
+		));
+	$comments = elgg_view_comments($idea, false, array( 'show_add_form' =>  false ));
+	$content .= "<p>This idea is a child of the aggregated idea: $link </p>" . $comments;
+}
+else {		// add links to child ideas
+	$children = elgg_get_entities_from_relationship( array( 'relationship' => 'child-idea', 'inverse_relationship' => true ) );
+	$links = "";		// linkts to the children
+	foreach ( $children as $child ){
+		$links .= "<div class='col-md-2'>" . elgg_view('output/url', array(
+				'href' => $child->getURL(),
+				'text' => $child->title,
+				'is_trusted' => true
+			)) . "</div>";
+	}
+	$comments = elgg_view_comments($idea, false, array( 'show_add_form' =>  false ));
+	$content .= "This idea is an aggregated idea with $status child(ren): <div class='row'> $links </div>" . $comments;
+}
 
 $body = elgg_view_layout('content', array(
 	'content' => $content,

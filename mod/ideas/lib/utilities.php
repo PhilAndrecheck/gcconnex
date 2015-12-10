@@ -81,3 +81,24 @@ function ideas_group_settings_prepare_form_vars($group = null) {
 
 	return $values;
 }
+
+/**
+ *
+ * Check if the idea is a perent, child, or neither
+ * returns:
+ * -1 	=> 	child
+ * 0 	=> 	neither
+ * (# of child ideas) => parent
+ *
+ */
+function get_idea_status( $guid ){
+	$idea = get_entity($guid);
+
+	if ( $idea->countEntitiesFromRelationship( 'child-idea' ) )		// check if the idea has a parent idea
+		return -1;
+
+	else if ( $check = $idea->countEntitiesFromRelationship( 'child-idea', true ) )		// check if the idea has child ideas
+		return $check;
+
+	return 0;
+}

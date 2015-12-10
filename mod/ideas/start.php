@@ -23,6 +23,12 @@ function ideas_init() {
 	elgg_register_action('ideas/delete', "$action_base/deleteidea.php");
 	elgg_register_action('ideas/settings', "$action_base/settings.php");
 
+	// Open Book actions
+	elgg_register_action('ideas/link', "$action_base/linktoparentidea.php");
+	elgg_register_action('ideas/unlink', "$action_base/unlinkfromparentidea.php");
+	elgg_register_action('ideas/aggregate', "$action_base/aggregateideas.php");
+
+
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', 'ideas_owner_block_menu');
 
 	elgg_register_page_handler('ideas', 'ideas_page_handler');

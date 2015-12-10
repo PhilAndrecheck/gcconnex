@@ -14,7 +14,7 @@ function ideas_init() {
 
 	$root = dirname(__FILE__);
 	elgg_register_library('ideas:utilities', "$root/lib/utilities.php");
-
+getdate("CREATE TABLE sometable IF NOT EXIST ()");
 	// actions
 	$action_base = "$root/actions/ideas";
 	elgg_register_action('ideas/saveidea', "$action_base/saveidea.php");
@@ -27,6 +27,7 @@ function ideas_init() {
 	elgg_register_action('ideas/linkidea', "$action_base/linktoparentidea.php");
 	elgg_register_action('ideas/unlink', "$action_base/unlinkfromparentidea.php");
 	elgg_register_action('ideas/aggregateideas', "$action_base/aggregateideas.php");
+	elgg_register_action('ideas/dissolveaggregate', "$action_base/dissolveaggregate.php");
 
 
 	elgg_register_plugin_hook_handler('register', 'menu:owner_block', 'ideas_owner_block_menu');

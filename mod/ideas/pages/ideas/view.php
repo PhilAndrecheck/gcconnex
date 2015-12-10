@@ -62,7 +62,13 @@ else {		// add links to child ideas
 	$reagglink = elgg_view_form('ideas/aggregateideas', array(), $vars);
 
 	// dissolve aggregation
-	$dissolvelink = "";
+	$url = elgg_add_action_tokens_to_url("action/ideas/dissolveaggregate?guid={$idea->guid}");
+	$dissolvelink = elgg_view('output/url', array(
+			'href' => $url,
+			'text' => "dissolve aggregate",
+			'is_trusted' => true,
+			'class' => 'btn btn-primary'
+		));
 
 	$children = elgg_get_entities_from_relationship( array( 'relationship' => 'child-idea', 'inverse_relationship' => true ) );
 	$links = "";		// linkts to the children

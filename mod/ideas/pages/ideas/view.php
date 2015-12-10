@@ -25,19 +25,48 @@ elgg_push_breadcrumb($title);
 $content = elgg_view_entity($idea, array('full_view' => 'full'));
 $status = get_idea_status(get_input('guid'));
 
-if ( $status == 0 )		// regular comments
-	$content .= elgg_view_comments($idea);
+if ( $status == 0 ){		// regular comments
+	// make into agregate idea option
+	$aggregatelink = "";
+
+	// make into child idea / link to a parent option
+	$url = elgg_add_action_tokens_to_url("action/ideas/link?guid1={$idea->guid}&guid2=1026687");
+	$childlink =  elgg_view('output/url', array(
+			'href' => $url,
+			'text' => "link",
+			'is_trusted' => true,
+			'class' => 'btn btn-primary'
+		));
+
+	$content .= $aggregatelink . $childlink . elgg_view_comments($idea);
+}
 else if ( $status == -1 ) {		// add link to parent idea, can not add comments
 	$parent = elgg_get_entities_from_relationship( array( 'relationship' => 'child-idea') )[0];
+	// unlink child button
+	$url = elgg_add_action_tokens_to_url("action/ideas/unlink?guid1={$idea->guid}&guid2={$parent->guid}");
+	$unlinklink = elgg_view('output/url', array(
+			'href' => $url,
+			'text' => "unlink",
+			'is_trusted' => true,
+			'class' => 'btn btn-primary'
+		));
+
 	$link = elgg_view('output/url', array(
 			'href' => $parent->getURL(),
 			'text' => $parent->title,
 			'is_trusted' => true
 		));
 	$comments = elgg_view_comments($idea, false, array( 'show_add_form' =>  false ));
-	$content .= "<p>This idea is a child of the aggregated idea: $link </p>" . $comments;
+
+	$content .= $unlinklink . "<p>This idea is a child of the aggregated idea: $link </p>" . $comments;
 }
 else {		// add links to child ideas
+	// re-aggregate
+	$reagglink = "";
+
+	// dissolve aggregation
+	$dissolvelink = "";
+
 	$children = elgg_get_entities_from_relationship( array( 'relationship' => 'child-idea', 'inverse_relationship' => true ) );
 	$links = "";		// linkts to the children
 	foreach ( $children as $child ){
@@ -47,8 +76,9 @@ else {		// add links to child ideas
 				'is_trusted' => true
 			)) . "</div>";
 	}
-	$comments = elgg_view_comments($idea, false, array( 'show_add_form' =>  false ));
-	$content .= "This idea is an aggregated idea with $status child(ren): <div class='row'> $links </div>" . $comments;
+	$comments = elgg_view_comments($idea);
+
+	$content .= $reagglink . $dissolvelink . "This idea is an aggregated idea with $status child(ren): <div class='row'> $links </div>" . $comments;
 }
 
 $body = elgg_view_layout('content', array(

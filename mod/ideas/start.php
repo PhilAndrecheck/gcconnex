@@ -14,7 +14,7 @@ function ideas_init() {
 
 	$root = dirname(__FILE__);
 	elgg_register_library('ideas:utilities', "$root/lib/utilities.php");
-getdate("CREATE TABLE sometable IF NOT EXIST ()");
+
 	// actions
 	$action_base = "$root/actions/ideas";
 	elgg_register_action('ideas/saveidea', "$action_base/saveidea.php");

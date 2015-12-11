@@ -1,9 +1,9 @@
 <?php
 
-$tag = (int)get_input('aggregation-tag');
+$tag = get_input('aggregation-tag');
 $parent_guid = (int)get_input('parent_id');
 
-$children_guids = elgg_get_entities_from_metadata(array(
+$children = elgg_get_entities_from_metadata(array(
 	'type' => 'object',
 	'subtype' => 'idea',
 	'limit' => 100,
@@ -11,8 +11,12 @@ $children_guids = elgg_get_entities_from_metadata(array(
 	'metadata_values' => array($tag)
 ));
 
-foreach( $children_guids as $child )
-	add_entity_relationship($child, 'child-idea', $parent_guid);
+//error_log("AGG ideas tag: " . $tag . "  found: " . count($children));
+
+foreach( $children as $child ){
+	add_entity_relationship($child->guid, 'child-idea', $parent_guid);
+//	error_log("AGG idea: " . $child->guid);
+}
 
 forward("/ideas/view/$parent_guid");
 ?>

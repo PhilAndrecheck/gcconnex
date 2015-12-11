@@ -30,6 +30,7 @@ $status = get_idea_status(get_input('guid'));
 if ( $status == 0 ){		// regular comments
 	// make into agregate idea option
 	$vars["parent-id"] = $idea->guid;
+	$vars["group-id"] = $page_owner->guid;
 	$aggregatelink = elgg_view_form('ideas/aggregateideas', array(), $vars);
 
 	// make into child idea / link to a parent option

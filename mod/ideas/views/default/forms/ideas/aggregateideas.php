@@ -1,6 +1,7 @@
 <?php
 
 $parent_id = elgg_extract('parent-id', $vars, '');
+$group_id = elgg_extract('group-id', $vars, '');
 
 
 ?>
@@ -14,6 +15,7 @@ $parent_id = elgg_extract('parent-id', $vars, '');
 	<?php
 
 	echo elgg_view('input/hidden', array('name' => 'parent_id', 'value' => $parent_id));
+	echo elgg_view('input/hidden', array('name' => 'container_guid', 'value' => $group_id));
 
 	echo elgg_view('input/submit', array('value' => elgg_echo("aggregate"), 'class' => 'mrgn-tp-sm'));
 

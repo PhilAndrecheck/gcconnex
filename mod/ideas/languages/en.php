@@ -132,6 +132,12 @@ $english = array(
 	 */
 	'ideas:notify:subject' => "An idea in which you bet points has been %s.",
 	'ideas:notify:body' => "The idea <a href=\"%s\">%s</a> is %s.<br><br>You take back your point which you bet in this idea.<br><br><a href=\"%s\">Go to the ideas of the group %s</a>",
+
+	/*
+	 * Aggregation / idea linking
+	 */
+	'ideas:aggregation:tag' => "aggregate ideas by tag:",
+	'ideas:parent:inputid' => "link to parent with id:",
 );
 
 add_translation('en', $english);

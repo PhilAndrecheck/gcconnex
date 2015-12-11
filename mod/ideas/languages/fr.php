@@ -139,6 +139,11 @@ $french = array(
 	'ideas:notify:subject' => "Une idée à laquelle vous avez voté est %s.",
 	'ideas:notify:body' => "L'idée <a href=\"%s\">%s</a> est %s.<br><br>Vous avez récupéré les points que vous aviez mis pour cette idée.<br><br><a href=\"%s\">Aller dans les idées du groupe %s</a>",
 
+	/*
+	 * Aggregation / idea linking
+	 */
+	'ideas:aggregation:tag' => "agréger des idées par tag:",
+	'ideas:parent:inputid' => "link to parent with id:",
 );
 
 add_translation('fr', $french);

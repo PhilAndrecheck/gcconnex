@@ -137,8 +137,8 @@ return array(
 	'name' => "Display name",
 	'email' => "Email address",
 	'username' => "Username",
-	'loginusername' => "GCconnex username or email",
-	'password' => "GCconnex password",
+	'loginusername' => "GCcollab username or email",
+	'password' => "GCcollab password",
 	'passwordagain' => "Password (again for verification)",
 	'admin_option' => "Make this user an admin?",
 

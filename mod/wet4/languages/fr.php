@@ -15,16 +15,16 @@ return array(
   'wet:search' =>  "Recherche et menus",
   'wet:searchHead' =>  "Recherche",
   'wet:searchweb' =>  "Recherche sur le site Web",
-  'wet:searchgctools' => "Recherche sur GCconnex", 
+  'wet:searchgctools' => "Recherche sur GCcollab", 
   'wet:more' => "Autres",
   'wet:topicmenu' => "Menu des sujets",
   'wet:youarehere' => "Vous êtes ici :",
   'wet:errmess' => "<h3 class='h3'>Le formulaire n'a pu être soumis, car une ou des erreurs ont été trouvées.</h3>",
   'wet:feedbackText' => "Rétroaction<span class='wb-inv'> sur ce site Web</span>",
-  'wet:footAbout' => 'Au sujet de GCconnex',
+  'wet:footAbout' => 'Au sujet de GCcollab',
   'wet:footTerms' => 'Modalités',
   'wet:footPrivacy'	 => 'Politique de confidentialité',
-  'wet:footTutorials' => 'Tutoriels de GCconnex',
+  'wet:footTutorials' => 'Tutoriels de GCcollab',
   'wet:footTitleAbout' => 'Infos',
   'wet:footTitleNews' =>  'Nouvelles',
   'wet:footGCtools' => 'OutilsGC',
@@ -81,7 +81,7 @@ return array(
      */
 
     'dept:confirm' => 'Confirmez votre ministère',
-    'dept:intro' => 'Dans l’optique d’avoir de l’information à jour sur GCconnex et afin d’obtenir les meilleurs statistiques possibles, nous vous prions de confirmer votre ministère.',
+    'dept:intro' => 'Dans l’optique d’avoir de l’information à jour sur GCcollab et afin d’obtenir les meilleurs statistiques possibles, nous vous prions de confirmer votre ministère.',
     'dept:not' => "N'est pas votre ministère présentement?",
     'dept:select' => 'Veuillez choisir votre ministère présent',
     'confirm' => 'Confirmer',
@@ -176,8 +176,8 @@ return array(
         /**
       * Custom Activity Widget
       */
-    'wetActivity:nocollorgroup' => "Bienvenue sur GCconnex. Pour commencer, vous pouvez parcourir la liste des groupes ou effectuer une recherche pour trouver des groupes liés à votre travail ou à vos intérêts.",
-	'wetActivity:welcome' => "Bienvenue sur GCconnex",
+    'wetActivity:nocollorgroup' => "Bienvenue sur GCcollab. Pour commencer, vous pouvez parcourir la liste des groupes ou effectuer une recherche pour trouver des groupes liés à votre travail ou à vos intérêts.",
+	'wetActivity:welcome' => "Bienvenue sur GCcollab",
 	'wetActivity:browsegroups' => "Parcourir la liste des groupes",
     'wet4:filterActivity'=>'Filtre Activité',
      
@@ -240,8 +240,8 @@ return array(
  */
 
 	'login' => "Ouvrir une session",
-	'loginok' => "Bienvenue à GCconnex %s.", /*NEW*/
-    'wet:loginok' => "Bienvenue à GCconnex %s.", /*NEW*/
+	'loginok' => "Bienvenue à GCcollab %s.", /*NEW*/
+    'wet:loginok' => "Bienvenue à GCcollab %s.", /*NEW*/
 	'loginerror' => "Nous n'avons pas pu vous identifier. Vérifiez les renseignements que vous avez saisis et réessayez.",
 	'login:empty' => "Votre nom d'utilisateur ou votre adresse de courriel et votre mot de passe sont requis.",
 	'login:baduser' => "Impossible de charger votre compte d'utilisateur.",
@@ -406,7 +406,7 @@ return array(
 'widgets:move:failure' => "Nous n'avons pas pu sauvegarder la nouvelle position du widget.",
 	'widgets:remove:failure' => "Impossible de supprimer ce widget",
 'wet4:colandgroupactivity' => 'Votre fil de nouvelles',
-'wet4:colandgroupactivitynolog' => 'Bienvenue sur GCconnex',
+'wet4:colandgroupactivitynolog' => 'Bienvenue sur GCcollab',
     'wet4:noticetitle' => 'Avis',
 'wet4:homenotice' => 'Bienvenue sur GCconnex, la plateforme de réseautage social professionnelle du gouvernement du Canada. GCconnex, c\'est un outil qui permet aux fonctionnaires de tisser des liens et de collaborer selon leurs connaissances, leurs expériences et leurs intérêts communs. GCconnex devrait être réservé aux activités professionnelles et ne devrait pas servir à remplacer les réseaux sociaux personnels (comme Facebook).',
 

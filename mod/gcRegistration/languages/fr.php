@@ -40,7 +40,7 @@ $french = array(
 'gcRegister:display_name_is_empty' => '<a href="#name">Le champ « Nom à afficher » ne peut pas être laissé vide</a>',
 
     'registration:userexists' => 'That username already exists. <a href=forgotpassword>Retrieve your password</a>(translate me)',
-    'gcRegister:department' => 'Ministère',
+    'gcRegister:department' => 'Organisation',
 );
  
 add_translation("fr", $french);

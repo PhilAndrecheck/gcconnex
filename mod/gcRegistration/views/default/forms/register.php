@@ -355,6 +355,7 @@ var enDepartments = {};//new Array();
 	if (get_current_language()=='en'){
 		//$metaname = "deptsEn";
 		$departments = $obj[0]->deptsEn;
+		$provinces['gov-ca'] = "Government of Canada";
 		$provinces['pov-alb'] = 'Government of Alberta';
 		$provinces['pov-bc'] = 'Government of British Columbia';
 		$provinces['pov-man'] = 'Government of Manitoba';
@@ -368,9 +369,11 @@ var enDepartments = {};//new Array();
 		$provinces['pov-que'] = 'Government of Quebec';
 		$provinces['pov-sask'] = 'Government of Saskatchewan';
 		$provinces['pov-yuk'] = 'Government of Yukon';
+		$provinces['uni-ott'] = 'University of Ottawa';
 	}else{
 		//$metaname = "deptsFr";
 		$departments = $obj[0]->deptsFr;
+		$provinces['gov-ca'] = "Gouvernement du Canada";
 		$provinces['pov-alb'] = "Gouvernement de l'Alberta";
 		$provinces['pov-bc'] = 'Gouvernement de la Colombie-Britannique';
 		$provinces['pov-man'] = 'Gouvernement du Manitoba';
@@ -384,18 +387,19 @@ var enDepartments = {};//new Array();
 		$provinces['pov-que'] = 'Gouvernement du Québec';
 		$provinces['pov-sask'] = 'Gouvernement de Saskatchewan';
 		$provinces['pov-yuk'] = 'Gouvernement du Yukon';
+		$provinces['uni-ott'] = "Universite d'Ottawa";
 	}
 	$departments = json_decode($departments, true);
 	//$departments['ont'] = 'ontario';
 	//echo "lang".get_current_language();
 	//$departments = $meta[0]->value;//array(1, 2, 3);
-	echo elgg_view('input/select', array(
+	/*echo elgg_view('input/select', array(
 		'name' => 'department',
 		'id' => 'department',
         //'disabled'=>'disabled',
         'class' => 'department_test form-control',
-		'options_values' => array_merge($departments,$provinces),
-	));
+		'options_values' => $provinces,
+	));*/
 	?>
 </div>
 <div class="form-group">
@@ -592,7 +596,7 @@ echo '<br/>';
 		    }
 		});
 
-	    $('#department_name').on("focusout", function() {
+	    /*$('#department_name').on("focusout", function() {
 	    	//enable_submit(validForm());
 	    	var val = $(this).val();
 		    if ( val === '' ) {
@@ -602,7 +606,7 @@ echo '<br/>';
 		    else if ( val !== '' ) {
 		        //document.getElementById('department_error').innerHTML = '';
 		    }
-		});
+		});*/
 	//});
 
     

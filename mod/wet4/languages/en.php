@@ -14,16 +14,16 @@ return array(
   'wet:search'=>"Search and menus",
   'wet:searchHead'=>"Search",
   'wet:searchweb'=>"Search website",
-  'wet:searchgctools'=>"Search GCconnex",
+  'wet:searchgctools'=>"Search GCcollab",
   'wet:more'=>"More",
   'wet:topicmenu'=>"Topic menu",
   'wet:youarehere'=>"You are here:",
   'wet:errmess' => "<h3 class='h3'>The form could not be submitted because errors were found.</h3>",
   'wet:feedbackText'=>"Feedback<span class='wb-inv'> about this web site</span>",
-  'wet:footAbout' => 'About GCconnex',
+  'wet:footAbout' => 'About GCcollab',
   'wet:footTerms' => 'Terms and Conditions of Use',
   'wet:footPrivacy' => 'Privacy Policy',
-  'wet:footTutorials' => 'GCconnex Tutorials',
+  'wet:footTutorials' => 'GCcollab Tutorials',
   'wet:footTitleAbout' => 'About',
   'wet:footTitleNews' => 'News',
   'wet:footTitleSocial' => 'Stay Connected',
@@ -171,7 +171,7 @@ return array(
      * Custom Activity Widget
      */
      'wetActivity:nocollorgroup'=>"To get started you can browse or search for groups related to your work and interests. Join some groups to start seeing activity.",
-     'wetActivity:welcome'=>"Welcome to GCconnex",
+     'wetActivity:welcome'=>"Welcome to GCcollab",
      'wetActivity:browsegroups'=>"Start Browsing Groups",
 
  /**
@@ -237,8 +237,8 @@ return array(
  */
 
 	'login' => "Log in",
-	'loginok' => "Welcome to GCconnex %s.", /*NEW but doesn't work :3*/
-    'wet:loginok' => "Welcome  to GCconnex %s.", /*NEW*/
+	'loginok' => "Welcome to GCcollab %s.", /*NEW but doesn't work :3*/
+    'wet:loginok' => "Welcome  to GCcollab %s.", /*NEW*/
 	'loginerror' => "We couldn't log you in. Please check your credentials and try again.",
 	'login:empty' => "Username/email and password are required.",
 	'login:baduser' => "Unable to load your user account.",
@@ -417,7 +417,7 @@ return array(
 	'widgets:remove:failure' => "Unable to remove this widget",
 
     'wet4:colandgroupactivity'=>'Your News feed',
-    'wet4:colandgroupactivitynolog'=>'Welcome to GCconnex',
+    'wet4:colandgroupactivitynolog'=>'Welcome to GCcollab',
     'wet4:noticetitle' => 'Notice',
     'wet4:homenotice' => 'Welcome to GCconnex, the Government of Canada&#39;s professional social networking platform. The purpose of GCconnex is to enable public servants to connect and collaborate based on shared interests, knowledge, and experience. GCconnex is to be used for activities related to the workplace and should not be used as a replacement for personal social networks (such as Facebook).',
 

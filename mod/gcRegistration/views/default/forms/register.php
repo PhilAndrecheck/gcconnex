@@ -343,8 +343,8 @@ var enDepartments = {};//new Array();
 
 
     </div>
-<div class="form-group">
-	<label for="department" class="required"><span class="field-name"><?php echo elgg_echo('gcRegister:department'); ?></span><strong class="required">(required)</strong></label>
+<!--<div class="form-group">
+	<label for="department" class="required"><span class="field-name"><?php echo elgg_echo('gcRegister:department'); ?></span><strong class="required">(required)</strong></label>-->
 	<?php
 	$obj = elgg_get_entities(array(
    		'type' => 'object',
@@ -401,7 +401,7 @@ var enDepartments = {};//new Array();
 		'options_values' => $provinces,
 	));*/
 	?>
-</div>
+<!--</div>-->
 <div class="form-group">
 	<label for="username" class="required"><span class="field-name"><?php echo elgg_echo('gcRegister:username'); ?></span><strong class="required">(required)</strong></label> 
     <div class="already-registered-message mrgn-bttm-sm"><span class="label label-danger tags mrgn-bttm-sm"></span></div>

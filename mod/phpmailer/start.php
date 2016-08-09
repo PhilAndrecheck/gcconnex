@@ -117,12 +117,11 @@ function phpmailer_extract_from_email($from) {
  */
 function phpmailer_send($to, $to_name, $subject, $body, array $bcc = NULL, $html = true, array $files = NULL, array $params = NULL) {
 	
-	
-require_once elgg_get_plugins_path() . '/phpmailer/vendors/class.phpmailer.php';
+	require_once elgg_get_plugins_path() . '/phpmailer/vendors/class.phpmailer.php';
 
 	$site = elgg_get_site_entity();
 
-$phpmailer = new PHPMailer(true); //defaults to using php "mail()"; the true param means it will throw exceptions on errors, which we need to catch
+	$phpmailer = new PHPMailer(true); //defaults to using php "mail()"; the true param means it will throw exceptions on errors, which we need to catch
 
 	// Set the from name and email
 	$from = elgg_get_plugin_setting('phpmailer_from_name', 'phpmailer');
